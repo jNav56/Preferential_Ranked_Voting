@@ -1,0 +1,14 @@
+.DS_Store
+*.gcda
+*.gcno
+*.gcov
+*.plist
+*.tmp
+voting-tests
+CS371p-Voting.bbprojectd
+Doxyfile
+Icon?
+latex
+my-makefile
+RunVoting
+TestVoting

@@ -1,0 +1,22 @@
+INT(1, 100, t) NEWLINE
+REPI(i, t)
+  NEWLINE
+  INT(1, 20, nc) NEWLINE
+  REP(nc)
+    REGEX("[^\n]+", c) NEWLINE
+    ASSERT(STRLEN(c) <= 80)
+  END
+  WHILEI(b, MATCH("1234567890"))
+    REPI(p, nc - 1)
+      INT(1, nc, r[p]) SPACE
+    END
+    INT(1, nc, r[nc])
+    ASSERT(UNIQUE(r))
+    UNSET(r)
+    IF(!ISEOF)
+      NEWLINE
+    END
+  END
+  ASSERT(b > 0)
+  ASSERT(b <= 1000)
+END
