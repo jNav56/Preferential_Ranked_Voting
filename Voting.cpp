@@ -19,9 +19,13 @@
 
 using namespace std;
 
-int candidate_num_of_votes[20];
-int ballots_and_all_choices[1000][20];
-string candidate_names[20];
+#define MAX_NUMBER_OF_CASES 100
+#define MAX_NUMBER_OF_CANDIDATES 20
+#define MAX_NUMBER_OF_BALLOTS 1000
+
+int candidate_num_of_votes[MAX_NUMBER_OF_CANDIDATES];
+int ballots_and_all_choices[MAX_NUMBER_OF_BALLOTS][MAX_NUMBER_OF_CANDIDATES];
+string candidate_names[MAX_NUMBER_OF_CANDIDATES];
 
 void redistribute_votes(vector<int> losers, vector<int> ballots_candidate_has[], int min) {
     // Let's redistribute the loser votes
@@ -55,7 +59,6 @@ string get_winner(int num_candidates, int n) {
     int ballots_to_win = (n >> 1) + 1;
         
     // Array to hold the number of votes each candidate has
-    // int candidate_num_of_votes[num_candidates] = {0};
     for(int i = 0; i < num_candidates; i++) {
         candidate_num_of_votes[i] = 0;
     }
@@ -65,7 +68,6 @@ string get_winner(int num_candidates, int n) {
     int min = 1001;
         
     // Array holds the specific ballots each candidate has
-    // vector<int> ballots_candidate_has[num_candidates];
     vector<int> *ballots_candidate_has = new vector<int>[num_candidates];
         
     // Fill in number of votes and ballot IDs each candidate has at first
@@ -187,16 +189,9 @@ void voting_solve(istream& sin, ostream& sout) {
         
         getline(sin, s);
         int num_candidates = get_number_of_candidates(s);
-
-
-        // string candidate_names[num_candidates];
-        // string *candidate_names = new string[num_candidates];
-        
         
         fill_candidate_names(sin, num_candidates);
-        
-        // int ballots_and_all_choices[1000][20];
-        
+
         int num_of_ballots = fill_ballot_info(sin, num_candidates);
         
         string result = get_winner(num_candidates, num_of_ballots);
