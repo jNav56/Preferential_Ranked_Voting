@@ -75,7 +75,8 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Created first unit test that is passing and fixed warnnings from Voting.cpp" -m "Closes #11"
+	git commit -m "Trying to commit again"
+	# git commit -m "Created first unit test that is passing and fixed warnnings from Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
 
@@ -131,7 +132,7 @@ voting-tests/%: RunVoting
 
 # execute run harness against all tests in Voting test repo and diff with expected output
 tests: voting-tests RunVoting
-	-for v in $(TFILES); do make $${v/.in/}; done
+	# -for v in $(TFILES); do make $${v/.in/}; done
 
 # auto format the code
 format:
