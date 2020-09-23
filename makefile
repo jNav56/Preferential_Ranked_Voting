@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Trying to commit again"
+	git commit -m "Forked and Cloned public test repo" -m "Closes #7"
 	# git commit -m "Created first unit test that is passing and fixed warnnings from Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
@@ -120,7 +120,7 @@ test: TestVoting
 
 # clone the Votingtest repo
 voting-tests:
-	https://gitlab.com/gpdowning/cs371p-voting-tests.git voting-tests
+	git clone https://gitlab.com/gpdowning/cs371p-voting-tests.git voting-tests
 
 # test files in the Voting test repo
 TFILES := `ls voting-tests/*.in`
@@ -132,7 +132,7 @@ voting-tests/%: RunVoting
 
 # execute run harness against all tests in Voting test repo and diff with expected output
 tests: voting-tests RunVoting
-	# -for v in $(TFILES); do make $${v/.in/}; done
+	-for v in $(TFILES); do make $${v/.in/}; done
 
 # auto format the code
 format:
