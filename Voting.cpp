@@ -172,6 +172,10 @@ void fill_candidate_names(istream& sin, int num_candidates) {
     }
 }
 
+// -------------
+// get_number_of_candidates
+// -------------
+
 int get_number_of_candidates (const string& s) {
     istringstream sin(s);
     int i;

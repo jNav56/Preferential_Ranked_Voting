@@ -73,12 +73,12 @@ using namespace std;
 // // get_number_of_candidates
 // // ------------
 
-// /**
-//  * Take input and retrieve number of candidates
-//  * @param sin istream
-//  * @return an int
-//  */
-// int get_number_of_candidates(const string&);
+/**
+ * Take input and retrieve number of candidates
+ * @param sin istream
+ * @return an int
+ */
+int get_number_of_candidates(const string&);
 
 // ------------
 // get_number_of_cases
