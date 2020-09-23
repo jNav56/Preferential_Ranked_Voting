@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Filled in the RunVoting.cpp and Voting.cpp with code to run"
+	git commit -m "Created first unit test that is passing and fixed warnnings from Voting.cpp" -m "Closes #11"
 	git push
 	git status
 
@@ -114,8 +114,8 @@ run: ctd-check RunVoting
 
 # execute test harness
 test: TestVoting
-	# $(VALGRIND) ./TestVoting
-	# $(GCOV) Voting.cpp | grep -B 2 "cpp.gcov"
+	$(VALGRIND) ./TestVoting
+	$(GCOV) Voting.cpp | grep -B 2 "cpp.gcov"
 
 # clone the Votingtest repo
 voting-tests:
@@ -131,7 +131,7 @@ voting-tests/%: RunVoting
 
 # execute run harness against all tests in Voting test repo and diff with expected output
 tests: voting-tests RunVoting
-	# -for v in $(TFILES); do make $${v/.in/}; done
+	-for v in $(TFILES); do make $${v/.in/}; done
 
 # auto format the code
 format:
