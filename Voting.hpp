@@ -80,16 +80,16 @@ using namespace std;
 //  */
 // int get_number_of_candidates(const string&);
 
-// // ------------
-// // get_number_of_cases
-// // ------------
+// ------------
+// get_number_of_cases
+// ------------
 
-// /**
-//  * Take input and retrieve number of case
-//  * @param sin istream
-//  * @return an int
-//  */
-// int get_number_of_cases(const string&);
+/**
+ * Take input and retrieve number of case
+ * @param sin istream
+ * @return an int
+ */
+int get_number_of_cases(const string&);
 
 /**
  * @param an istream

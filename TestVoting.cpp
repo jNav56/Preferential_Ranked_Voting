@@ -75,3 +75,18 @@ TEST(VotingFixture, solve1) {
     voting_solve(iss, oss);
     ASSERT_EQ("Izuku\n", oss.str());}
 
+// -------------
+// get_number_of_cases
+// -------------
+
+TEST(VotingFixture, cases0) {
+    ASSERT_EQ(get_number_of_cases("31"), 31);
+}
+
+
+TEST(VotingFixture, cases1) {
+    istringstream iss("42\n\n3\n");
+    string t;
+    getline(iss, t);
+    ASSERT_EQ(get_number_of_cases(t), 42);
+}

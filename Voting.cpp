@@ -179,6 +179,10 @@ int get_number_of_candidates (const string& s) {
     return i;
 }
 
+// -------------
+// get_number_of_cases
+// -------------
+
 int get_number_of_cases(const string& s) {
     istringstream sin(s);
     int i;
