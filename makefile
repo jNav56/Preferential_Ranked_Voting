@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Created a README, makefile, .gitignore, and a .gitlab-ci.yml file"
+	git commit -m "Updated Voting.in and Voting.out files"
 	git push
 	git status
 
@@ -108,14 +108,14 @@ ctd-generate:
 	$(CHECKTESTDATA) -g RunVoting.ctd RunVoting.tmp
 
 # execute run harness and diff with expected output
-run: ctd-check RunVoting
-	./RunVoting < RunVoting.in > RunVoting.tmp
-	-diff RunVoting.tmp RunVoting.out
+# run: ctd-check RunVoting
+# 	./RunVoting < RunVoting.in > RunVoting.tmp
+# 	-diff RunVoting.tmp RunVoting.out
 
 # execute test harness
-test: TestVoting
-	$(VALGRIND) ./TestVoting
-	$(GCOV) Voting.cpp | grep -B 2 "cpp.gcov"
+# test: TestVoting
+# 	$(VALGRIND) ./TestVoting
+# 	$(GCOV) Voting.cpp | grep -B 2 "cpp.gcov"
 
 # clone the Votingtest repo
 voting-tests:
@@ -130,8 +130,8 @@ voting-tests/%: RunVoting
 	-diff RunVoting.tmp $@.out
 
 # execute run harness against all tests in Voting test repo and diff with expected output
-tests: voting-tests RunVoting
-	-for v in $(TFILES); do make $${v/.in/}; done
+# tests: voting-tests RunVoting
+# 	-for v in $(TFILES); do make $${v/.in/}; done
 
 # auto format the code
 format:
