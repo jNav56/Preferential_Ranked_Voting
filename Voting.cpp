@@ -27,6 +27,45 @@ int candidate_num_of_votes[MAX_NUMBER_OF_CANDIDATES];
 int ballots_and_all_choices[MAX_NUMBER_OF_BALLOTS][MAX_NUMBER_OF_CANDIDATES];
 string candidate_names[MAX_NUMBER_OF_CANDIDATES];
 
+void get_most_and_least_votes(int& min, int& max, int num_candidates) {
+    for(int i = 0; i < num_candidates; i++) {
+        int total_votes = candidate_num_of_votes[i];
+                
+        if(total_votes != -1) {
+                    
+            if(total_votes > max)
+                max = total_votes;
+                    
+            if(total_votes < min)
+                min = total_votes;
+        }
+    }
+}
+
+bool is_there_a_winner(string& result, int max, int ballots_to_win, int min, int num_candidates) {
+    // If there is a winner(s) we get them and save them to result 
+    if(max >= ballots_to_win || min == max) {
+        for(int i = 0; i < num_candidates; i++) {
+            if(candidate_num_of_votes[i] == max) {
+                result += candidate_names[i] + "\n";
+            }
+        }
+        // return result;
+        return true;
+    }
+    return false;
+}
+
+void assign_candidates_as_losers(vector<int>& losers, int num_candidates, int min) {
+    // There are no winners so lets get and eliminate the losers
+    for (int i = 0; i < num_candidates; i++) {   
+        if (candidate_num_of_votes[i] == min) {
+            losers.push_back(i);
+            candidate_num_of_votes[i] = -1;
+        }
+    }
+}
+
 void redistribute_votes(vector<int> losers, vector<int> ballots_candidate_has[], int min) {
     // Let's redistribute the loser votes
     for(int i = 0; i < (int)losers.size(); i++) {
@@ -63,10 +102,6 @@ string get_winner(int num_candidates, int n) {
         candidate_num_of_votes[i] = 0;
     }
         
-    // Keep track of the highest number of votes and least number of votes
-    int max = 0;
-    int min = 1001;
-        
     // Array holds the specific ballots each candidate has
     vector<int> *ballots_candidate_has = new vector<int>[num_candidates];
         
@@ -84,44 +119,23 @@ string get_winner(int num_candidates, int n) {
         
     while(true) {
         
+        // Keep track of the highest number of votes and least number of votes
+        int max = 0;
+        int min = 1001;
+
         // Go through eligible candidates and get their number of votes
-        for(int i = 0; i < num_candidates; i++) {
-            int total_votes = candidate_num_of_votes[i];
-                
-            if(total_votes != -1) {
-                    
-                if(total_votes > max)
-                    max = total_votes;
-                    
-                if(total_votes < min)
-                    min = total_votes;
-            }
-        }
+        get_most_and_least_votes(min, max, num_candidates);
             
         // If there is a winner(s) we get them and save them to result 
-        if(max >= ballots_to_win || min == max) {
-            for(int i = 0; i < num_candidates; i++) {
-                if(candidate_num_of_votes[i] == max) {
-                    result += candidate_names[i] + "\n";
-                }
-            }
+        if(is_there_a_winner(result, max, ballots_to_win, min, num_candidates))
             return result;
-        }
             
         // There are no winners so lets get and eliminate the losers
-        for (int i = 0; i < num_candidates; i++) {   
-            if (candidate_num_of_votes[i] == min) {
-                losers.push_back(i);
-                candidate_num_of_votes[i] = -1;
-            }
-        }
+        assign_candidates_as_losers(losers, num_candidates, min);
         
         redistribute_votes(losers, ballots_candidate_has, min);
             
         losers.clear();
-            
-        max = 0;
-        min = 1001;
     }
     return result;
 }
