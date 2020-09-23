@@ -66,7 +66,7 @@ void assign_candidates_as_losers(vector<int>& losers, int num_candidates, int mi
     }
 }
 
-void redistribute_votes(vector<int> losers, vector<int> ballots_candidate_has[], int min) {
+void redistribute_votes(vector<int>& losers, vector<int> ballots_candidate_has[], int min) {
     // Let's redistribute the loser votes
     for(int i = 0; i < (int)losers.size(); i++) {
                 
@@ -168,7 +168,6 @@ void fill_candidate_names(istream& sin, int num_candidates) {
     // Fill the candidate array with the number of candidates
     for(int i = 0; i < num_candidates; i++) {
         getline(sin, s);
-
         candidate_names[i] = s;
     }
 }

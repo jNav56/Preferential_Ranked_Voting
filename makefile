@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Fixed first implementation"
+	git commit -m "First unit test works with implementation and have enough issues" -m "Closes #1"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
