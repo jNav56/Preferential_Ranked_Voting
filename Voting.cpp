@@ -124,6 +124,10 @@ void redistribute_votes(vector<int>& losers, vector<int> ballots_candidate_has[]
     }
 }
 
+// ------------
+// get_winner
+// ------------
+
 string get_winner(int num_candidates, int n) {
     
     string result = "";

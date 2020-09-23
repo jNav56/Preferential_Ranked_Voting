@@ -52,19 +52,17 @@ string get_ballot_info(int, int);
 //  */
 // void redistribute_votes(int (*)[20], int*, vector<int>, vector<int>*, int);
 
-// // ------------
-// // get_winner
-// // ------------
+// ------------
+// get_winner
+// ------------
 
-// /**
-//  * Determine the winner from a set of votes
-//  * @param ballots_and_all_choices matrix
-//  * @param num_candidates int
-//  * @param n int
-//  * @param candidate_names string array
-//  * @return a string
-//  */
-// string get_winner(int (*)[20], int, int, string*);
+/**
+ * Determine the winner from a set of votes
+ * @param num_candidates int
+ * @param n int=
+ * @return a string
+ */
+string get_winner(int, int);
 
 // ------------
 // fill_ballot_info

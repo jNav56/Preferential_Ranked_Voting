@@ -21,6 +21,28 @@
 using namespace std;
 
 // ------------
+// get_winner
+// ------------
+
+TEST(VotingFixture, winner0) {
+    istringstream iss0("Buzz Lightyear\nWoody\nPrincess Peach\nAll Might\n");
+    fill_candidate_names(iss0, 4);
+
+    istringstream iss1("1 2 4 3\n4 2 1 3\n3 2 1 4\n2 3 4 1\n4 3 1 2\n");
+    fill_ballot_info(iss1, 4);
+
+    ASSERT_EQ(get_winner(4, 5), "All Might\n");}
+
+TEST(VotingFixture, winner1) {
+    istringstream iss0("Poppy\nBonny\n");
+    fill_candidate_names(iss0, 2);
+
+    istringstream iss1("1 2\n2 1\n2 1\n1 2\n");
+    fill_ballot_info(iss1, 2);
+
+    ASSERT_EQ(get_winner(2, 4), "Poppy\nBonny\n");}
+
+// ------------
 // fill_ballot_info
 // ------------
 
@@ -32,8 +54,7 @@ TEST(VotingFixture, ballot0) {
 
     string answer = "1 - 1 2 4 3\n2 - 4 2 1 3\n3 - 3 2 1 4\n4 - 2 3 4 1\n5 - 1 3 4 2\n";
 
-    ASSERT_EQ(result, answer);
-}
+    ASSERT_EQ(result, answer);}
 
 TEST(VotingFixture, ballot1) {
     istringstream iss("1 2\n1 2\n1 2\n2 1\n");
@@ -43,8 +64,7 @@ TEST(VotingFixture, ballot1) {
 
     string answer = "1 - 1 2\n2 - 1 2\n3 - 1 2\n4 - 2 1\n";
 
-    ASSERT_EQ(result, answer);
-}
+    ASSERT_EQ(result, answer);}
 
 // ------------
 // fill_candidate_names
