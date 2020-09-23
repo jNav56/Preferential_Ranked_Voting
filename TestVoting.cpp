@@ -21,6 +21,32 @@
 using namespace std;
 
 // ------------
+// fill_ballot_info
+// ------------
+
+TEST(VotingFixture, ballot0) {
+    istringstream iss("1 2 4 3\n4 2 1 3\n3 2 1 4\n2 3 4 1\n1 3 4 2\n");
+    fill_ballot_info(iss, 4);
+
+    string result = get_ballot_info(5, 4);
+
+    string answer = "1 - 1 2 4 3\n2 - 4 2 1 3\n3 - 3 2 1 4\n4 - 2 3 4 1\n5 - 1 3 4 2\n";
+
+    ASSERT_EQ(result, answer);
+}
+
+TEST(VotingFixture, ballot1) {
+    istringstream iss("1 2\n1 2\n1 2\n2 1\n");
+    fill_ballot_info(iss, 4);
+
+    string result = get_ballot_info(4, 2);
+
+    string answer = "1 - 1 2\n2 - 1 2\n3 - 1 2\n4 - 2 1\n";
+
+    ASSERT_EQ(result, answer);
+}
+
+// ------------
 // fill_candidate_names
 // ------------
 

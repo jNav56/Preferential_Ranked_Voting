@@ -41,6 +41,24 @@ string get_candidate_names(int num_candidates) {
     return result;
 }
 
+// -------------
+// get_ballot_info - Helper Method for Unit Testing
+// -------------
+
+string get_ballot_info(int num_ballots, int num_candidates) {
+
+    ostringstream stream;
+    for(int i = 0; i < num_ballots; i++) {
+        stream << (i + 1) << " -";
+
+        for(int j = 0; j < num_candidates; j++) {
+            stream << " " << ballots_and_all_choices[i][j];
+        }
+        stream << '\n';
+    }
+    return stream.str();
+}
+
 void get_most_and_least_votes(int& min, int& max, int num_candidates) {
     for(int i = 0; i < num_candidates; i++) {
         int total_votes = candidate_num_of_votes[i];
@@ -153,6 +171,10 @@ string get_winner(int num_candidates, int n) {
     }
     return result;
 }
+
+// ------------
+// fill_ballot_info
+// ------------
 
 int fill_ballot_info(istream& sin, int num_candidates) {
     string s;

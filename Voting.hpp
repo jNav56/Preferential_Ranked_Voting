@@ -26,6 +26,18 @@ using namespace std;
  */
 string get_candidate_names(int);
 
+// -------------
+// get_ballot_info - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Returns a string of the candidate names
+ * @param num_candidates int
+ * @param num_candidates int
+ * @return a string
+ */
+string get_ballot_info(int, int);
+
 // // ------------
 // // redistribute_votes
 // // ------------
@@ -54,18 +66,17 @@ string get_candidate_names(int);
 //  */
 // string get_winner(int (*)[20], int, int, string*);
 
-// // ------------
-// // fill_ballot_info
-// // ------------
+// ------------
+// fill_ballot_info
+// ------------
 
-// /**
-//  * Take input and organize ballots with their rankings
-//  * @param sin istream
-//  * @param ballots_and_all_choices int matrix
-//  * @param num_candidates int
-//  * @return an int
-//  */
-// int fill_ballot_info(istream&, int (*)[20], int);
+/**
+ * Take input and organize ballots with their rankings
+ * @param sin istream
+ * @param num_candidates int
+ * @return an int
+ */
+int fill_ballot_info(istream&, int);
 
 // ------------
 // fill_candidate_names
