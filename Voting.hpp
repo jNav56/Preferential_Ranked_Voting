@@ -15,6 +15,17 @@
 
 using namespace std;
 
+// -------------
+// get_candidate_names - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Returns a string of the candidate names
+ * @param num_candidates int
+ * @return a string
+ */
+string get_candidate_names(int);
+
 // // ------------
 // // redistribute_votes
 // // ------------
@@ -56,22 +67,20 @@ using namespace std;
 //  */
 // int fill_ballot_info(istream&, int (*)[20], int);
 
-// // ------------
-// // fill_candidate_names
-// // ------------
+// ------------
+// fill_candidate_names
+// ------------
 
-// /**
-//  * Take input and retrieve names of candidates
-//  * @param sin istream
-//  * @param candidate_names string array
-//  * @param num_candidates int
-//  * @return an int
-//  */
-// int fill_candidate_names(istream&, string*, int);
+/**
+ * Take input and retrieve names of candidates
+ * @param sin istream
+ * @param num_candidates int
+ */
+void fill_candidate_names(istream&, int);
 
-// // ------------
-// // get_number_of_candidates
-// // ------------
+// ------------
+// get_number_of_candidates
+// ------------
 
 /**
  * Take input and retrieve number of candidates
@@ -91,10 +100,14 @@ int get_number_of_candidates(const string&);
  */
 int get_number_of_cases(const string&);
 
+// ------------
+// voting_solve
+// ------------
+
 /**
  * @param an istream
  * @param an ostream
  */
-void voting_solve (istream&, ostream&);
+void voting_solve(istream&, ostream&);
 
 #endif // Voting_h

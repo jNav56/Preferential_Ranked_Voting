@@ -27,6 +27,20 @@ int candidate_num_of_votes[MAX_NUMBER_OF_CANDIDATES];
 int ballots_and_all_choices[MAX_NUMBER_OF_BALLOTS][MAX_NUMBER_OF_CANDIDATES];
 string candidate_names[MAX_NUMBER_OF_CANDIDATES];
 
+// -------------
+// get_candidate_names - Helper Method for Unit Testing
+// -------------
+
+string get_candidate_names(int num_candidates) {
+    string result = "";
+
+    for(int i = 0; i < num_candidates; i++) {
+        result += candidate_names[i] + "\n";
+    }
+
+    return result;
+}
+
 void get_most_and_least_votes(int& min, int& max, int num_candidates) {
     for(int i = 0; i < num_candidates; i++) {
         int total_votes = candidate_num_of_votes[i];
@@ -161,6 +175,10 @@ int fill_ballot_info(istream& sin, int num_candidates) {
     
     return n;
 }
+
+// ------------
+// fill_candidate_names
+// ------------
 
 void fill_candidate_names(istream& sin, int num_candidates) {
     string s;

@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Created the method for reading the number of candidates and tested method" -m "Closes #17"
+	git commit -m "Verified that the candidate names were retrieved and stored correctly"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status

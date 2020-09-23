@@ -20,6 +20,34 @@
 
 using namespace std;
 
+// ------------
+// fill_candidate_names
+// ------------
+
+TEST(VotingFixture, names0) {
+    istringstream iss("42\n\n3\nDeku\nIzuku\nMidoriya\n");
+    string t;
+    getline(iss, t);
+    getline(iss, t);
+    getline(iss, t);
+    fill_candidate_names(iss, 3);
+    
+    string result = get_candidate_names(3);
+
+    ASSERT_EQ(result, "Deku\nIzuku\nMidoriya\n");}
+
+TEST(VotingFixture, names1) {
+    istringstream iss("42\n\n4\nBuzz Lightyear\nWoody\nPrincess Peach\nAll Might\n");
+    string t;
+    getline(iss, t);
+    getline(iss, t);
+    getline(iss, t);
+    fill_candidate_names(iss, 4);
+    
+    string result = get_candidate_names(4);
+
+    ASSERT_EQ(result, "Buzz Lightyear\nWoody\nPrincess Peach\nAll Might\n");}
+
 // -------------
 // get_number_of_candidates
 // -------------
