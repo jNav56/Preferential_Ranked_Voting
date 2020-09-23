@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Forked and Cloned public test repo" -m "Closes #7"
+	git commit -m "Trying again"
 	# git commit -m "Created first unit test that is passing and fixed warnnings from Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
@@ -157,8 +157,8 @@ html: Doxyfile Voting.hpp
 CFILES :=                                 \
     .gitignore                            \
     .gitlab-ci.yml                        \
-    Voting.log                           \
-    html
+    # Voting.log                           \
+    # html
 
 # uncomment the following line once you've pushed your test files
 # you must replace GitLabID with your GitLabID
