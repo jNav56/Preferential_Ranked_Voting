@@ -75,8 +75,8 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Trying again"
-	# git commit -m "Created first unit test that is passing and fixed warnnings from Voting.cpp" -m "Closes #11, #2"
+	git commit -m "Created global variables" -m "Closes #3, #14"
+	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
 

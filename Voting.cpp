@@ -20,8 +20,10 @@
 using namespace std;
 
 int candidate_num_of_votes[20];
+int ballots_and_all_choices[1000][20];
+string candidate_names[20];
 
-void redistribute_votes(int ballots_and_all_choices[1000][20], int candidate_num_of_votes[], vector<int> losers, vector<int> ballots_candidate_has[], int min) {
+void redistribute_votes(vector<int> losers, vector<int> ballots_candidate_has[], int min) {
     // Let's redistribute the loser votes
     for(int i = 0; i < (int)losers.size(); i++) {
                 
@@ -47,7 +49,7 @@ void redistribute_votes(int ballots_and_all_choices[1000][20], int candidate_num
     }
 }
 
-string get_winner(int ballots_and_all_choices[1000][20], int num_candidates, int n, string candidate_names[]) {
+string get_winner(int num_candidates, int n) {
     
     string result = "";
     int ballots_to_win = (n >> 1) + 1;
@@ -112,7 +114,7 @@ string get_winner(int ballots_and_all_choices[1000][20], int num_candidates, int
             }
         }
         
-        redistribute_votes(ballots_and_all_choices, candidate_num_of_votes, losers, ballots_candidate_has, min);
+        redistribute_votes(losers, ballots_candidate_has, min);
             
         losers.clear();
             
@@ -122,7 +124,7 @@ string get_winner(int ballots_and_all_choices[1000][20], int num_candidates, int
     return result;
 }
 
-int fill_ballot_info(istream& sin, int ballots_and_all_choices[1000][20], int num_candidates) {
+int fill_ballot_info(istream& sin, int num_candidates) {
     string s;
     int n = 0;
     // We will fill the ballot vector of each candidate
@@ -144,7 +146,7 @@ int fill_ballot_info(istream& sin, int ballots_and_all_choices[1000][20], int nu
     return n;
 }
 
-void fill_candidate_names(istream& sin, string candidate_names[], int num_candidates) {
+void fill_candidate_names(istream& sin, int num_candidates) {
     string s;
     
     // Fill the candidate array with the number of candidates
@@ -188,16 +190,16 @@ void voting_solve(istream& sin, ostream& sout) {
 
 
         // string candidate_names[num_candidates];
-        string *candidate_names = new string[num_candidates];
+        // string *candidate_names = new string[num_candidates];
         
         
-        fill_candidate_names(sin, candidate_names, num_candidates);
+        fill_candidate_names(sin, num_candidates);
         
-        int ballots_and_all_choices[1000][20];
+        // int ballots_and_all_choices[1000][20];
         
-        int num_of_ballots = fill_ballot_info(sin, ballots_and_all_choices, num_candidates);
+        int num_of_ballots = fill_ballot_info(sin, num_candidates);
         
-        string result = get_winner(ballots_and_all_choices, num_candidates, num_of_ballots, candidate_names);
+        string result = get_winner(num_candidates, num_of_ballots);
         sout << result;
         
         if(i + 1 != cases) {
