@@ -31,26 +31,50 @@ string get_candidate_names(int);
 // -------------
 
 /**
- * Returns a string of the candidate names
- * @param num_candidates int
+ * Returns a string of the all ballots
+ * @param num_ballots int
  * @param num_candidates int
  * @return a string
  */
 string get_ballot_info(int, int);
 
-// // ------------
-// // redistribute_votes
-// // ------------
+// -------------
+// get_candidate_num_votes - Helper Method for Unit Testing
+// -------------
 
-// /**
-//  * Redistribute votes from losers to next eligible candidates
-//  * @param ballots_and_all_choices int matrix
-//  * @param candidate_num_of_votes int array
-//  * @param losers int vector
-//  * @param ballots_candidate_has int vector
-//  * @param min int
-//  */
-// void redistribute_votes(int (*)[20], int*, vector<int>, vector<int>*, int);
+/**
+ * Returns a string of the candidates and their votes
+ * @param num_candidates int
+ * @return a string
+ */
+string get_candidate_num_votes(int);
+
+// -------------
+// call_redistribute - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Calls redistribute_votes method and passes in given parameters
+ * @param an istream
+ * @param num_candidates int
+ * @param losers int vector
+ * @param ballots_candidate_has int vector array
+ * @param min int
+ * @return a string
+ */
+string call_redistribute(int, vector<int>, vector<int>[], int);
+
+// ------------
+// redistribute_votes
+// ------------
+
+/**
+ * Redistribute votes from losers to next eligible candidates
+ * @param losers int vector
+ * @param ballots_candidate_has array of int vector
+ * @param min int
+ */
+void redistribute_votes(vector<int>&, vector<int>[], int);
 
 // ------------
 // get_winner

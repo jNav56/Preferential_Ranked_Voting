@@ -59,6 +59,61 @@ string get_ballot_info(int num_ballots, int num_candidates) {
     return stream.str();
 }
 
+// -------------
+// get_candidate_num_votes - Helper Method for Unit Testing
+// -------------
+
+string get_candidate_num_votes(int num_candidates) {
+    ostringstream stream;
+
+    for(int i = 0; i < num_candidates; i++) {
+        stream << (i + 1) << " - " << candidate_num_of_votes[i] << "\n";
+    }
+
+    return stream.str();
+}
+
+// -------------
+// call_redistribute - Helper Method for Unit Testing
+// -------------
+
+string call_redistribute(int num_candidates, vector<int> losers, vector<int> ballots_candidate_has[], int min) {
+
+    for(int i = 0; i < num_candidates; i++) {
+        candidate_num_of_votes[i] = 0;
+    }
+
+    for(int i = 0; i < (int)(losers.size()); i++) {
+        candidate_num_of_votes[losers.at(i)] = -1;
+    }
+
+    // Let's redistribute the loser votes
+    for(int i = 0; i < (int)losers.size(); i++) {
+                
+        vector<int> ballots = ballots_candidate_has[losers.at(i)];
+                
+        for(int j = 0; j < min; j++) {
+                    
+            int ballot_ID = ballots.at(j);
+            int index_on_ballot = 0;
+                    
+            int next_candidate = ballots_and_all_choices[ballot_ID][index_on_ballot];
+            next_candidate--;
+                    
+            while(candidate_num_of_votes[next_candidate] == -1) {
+                index_on_ballot++;
+                next_candidate = ballots_and_all_choices[ballot_ID][index_on_ballot];
+                next_candidate--;
+            }
+                         
+            candidate_num_of_votes[next_candidate]++;
+            ballots_candidate_has[next_candidate].push_back(ballot_ID);
+        }
+    }
+    
+    return get_candidate_num_votes(num_candidates);
+}
+
 void get_most_and_least_votes(int& min, int& max, int num_candidates) {
     for(int i = 0; i < num_candidates; i++) {
         int total_votes = candidate_num_of_votes[i];
@@ -97,6 +152,10 @@ void assign_candidates_as_losers(vector<int>& losers, int num_candidates, int mi
         }
     }
 }
+
+// ------------
+// redistribute_votes
+// ------------
 
 void redistribute_votes(vector<int>& losers, vector<int> ballots_candidate_has[], int min) {
     // Let's redistribute the loser votes

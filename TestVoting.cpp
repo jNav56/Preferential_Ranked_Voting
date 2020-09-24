@@ -13,12 +13,37 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
 #include "gtest/gtest.h"
 
 #include "Voting.hpp"
 
 using namespace std;
+
+// ------------
+// redistribute_votes
+// ------------
+
+TEST(VotingFixture, redistribute0) {
+    istringstream iss("1 2 4 3 5\n4 2 1 5 3\n2 1 4 5 3\n2 3 5 4 1\n4 3 1 2 5\n3 1 2 4 5\n5 2 3 4 1\n");
+    fill_ballot_info(iss, 5);
+
+    vector<int> losers{0, 2, 4};
+    vector<int> ballots_candidate_has[] = {{0}, {2, 3}, {5}, {1, 4}, {6}};
+
+    string result = call_redistribute(5, losers, ballots_candidate_has, 1);
+
+    ASSERT_EQ("1 - -1\n2 - 3\n3 - -1\n4 - 0\n5 - -1\n", result);}
+
+TEST(VotingFixture, redistribute1) {
+    istringstream iss("1 2 3\n2 1 3\n3 2 1\n2 3 1\n3 1 2\n3 1 2\n2 3 1\n");
+    fill_ballot_info(iss, 3);
+
+    vector<int> losers{0};
+    vector<int> ballots_candidate_has[] = {{0}, {1, 3, 6}, {2, 4, 5}};
+
+    string result = call_redistribute(3, losers, ballots_candidate_has, 1);
+
+    ASSERT_EQ("1 - -1\n2 - 1\n3 - 0\n", result);}
 
 // ------------
 // get_winner
