@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Created my .in and .out acceptance test files"
+	git commit -m "Ran checktestdata on my input file, it has worked"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
@@ -100,7 +100,7 @@ FILES :=                                  \
 # compile all
 all: $(FILES)
 
-# check integrity of input file
+# check integrity of input file - When I want to check my data, replace RunVoting.in with jNav56-RunVoting.in
 ctd-check:
 	$(CHECKTESTDATA) RunVoting.ctd RunVoting.in
 
