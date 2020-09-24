@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Ran checktestdata on my input file, it has worked"
+	git commit -m "Ran my input file and output file matches tmp file" -m "Closes #2"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
