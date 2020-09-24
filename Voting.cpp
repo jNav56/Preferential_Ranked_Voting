@@ -31,10 +31,13 @@ string candidate_names[MAX_NUMBER_OF_CANDIDATES];
 // get_most_and_least_votes
 // ------------
 
+// Goes through all the votes from each candidate and determines what
+// the lowest and highest amount of votes went to a candidate
 void get_most_and_least_votes(int& min, int& max, int num_candidates) {
     for(int i = 0; i < num_candidates; i++) {
         int total_votes = candidate_num_of_votes[i];
 
+        // We only want to check on elgible candidates
         if(total_votes != -1) {
 
             if(total_votes > max)
@@ -50,15 +53,18 @@ void get_most_and_least_votes(int& min, int& max, int num_candidates) {
 // is_there_a_winner
 // ------------
 
-bool is_there_a_winner(string& result, int max, int ballots_to_win, int min, int num_candidates) {
+// Determines if winner is present after the redistribution of votes
+bool is_there_a_winner(string& result, int max, int ballots_to_win,
+                       int min, int num_candidates) {
     // If there is a winner(s) we get them and save them to result
     if(max >= ballots_to_win || min == max) {
+
+        // Only add candidates that have the most votes
         for(int i = 0; i < num_candidates; i++) {
             if(candidate_num_of_votes[i] == max) {
                 result += candidate_names[i] + "\n";
             }
         }
-        // return result;
         return true;
     }
     return false;
@@ -68,7 +74,8 @@ bool is_there_a_winner(string& result, int max, int ballots_to_win, int min, int
 // assign_candidates_as_losers
 // ------------
 
-void assign_candidates_as_losers(vector<int>& losers, int num_candidates, int min) {
+void assign_candidates_as_losers(vector<int>& losers,
+                                 int num_candidates, int min) {
     // There are no winners so lets get and eliminate the losers
     for (int i = 0; i < num_candidates; i++) {
         if (candidate_num_of_votes[i] == min) {
@@ -82,26 +89,36 @@ void assign_candidates_as_losers(vector<int>& losers, int num_candidates, int mi
 // redistribute_votes
 // ------------
 
-void redistribute_votes(vector<int>& losers, vector<int> ballots_candidate_has[], int min) {
-    // Let's redistribute the loser votes
+// Let's redistribute the loser votes
+void redistribute_votes(vector<int>& losers,
+                        vector<int> ballots_candidate_has[], int min) {
+
+    // Go through each loser
     for(int i = 0; i < (int)losers.size(); i++) {
 
+        // Get the list of ballot the loser has
         vector<int> ballots = ballots_candidate_has[losers.at(i)];
 
         for(int j = 0; j < min; j++) {
 
+            // Get the ballot ID and start on their first choice
             int ballot_ID = ballots.at(j);
             int index_on_ballot = 0;
 
-            int next_candidate = ballots_and_all_choices[ballot_ID][index_on_ballot];
+            // We want to know what candidate was their first choice
+            int next_candidate =
+                ballots_and_all_choices[ballot_ID][index_on_ballot];
             next_candidate--;
 
+            // We get the next candidate that has not been eliminated
             while(candidate_num_of_votes[next_candidate] == -1) {
                 index_on_ballot++;
-                next_candidate = ballots_and_all_choices[ballot_ID][index_on_ballot];
+                next_candidate =
+                    ballots_and_all_choices[ballot_ID][index_on_ballot];
                 next_candidate--;
             }
 
+            // Update info for whomever the ballot went to
             candidate_num_of_votes[next_candidate]++;
             ballots_candidate_has[next_candidate].push_back(ballot_ID);
         }
@@ -154,6 +171,7 @@ string get_winner(int num_candidates, int n) {
         // There are no winners so lets get and eliminate the losers
         assign_candidates_as_losers(losers, num_candidates, min);
 
+        // Let's give the ballots of the loser to the non-loser
         redistribute_votes(losers, ballots_candidate_has, min);
 
         losers.clear();
@@ -165,6 +183,7 @@ string get_winner(int num_candidates, int n) {
 // fill_ballot_info
 // ------------
 
+// Fill the int matrix of the ballots with that of the input
 int fill_ballot_info(istream& sin, int num_candidates) {
     string s;
     int n = 0;
@@ -191,6 +210,7 @@ int fill_ballot_info(istream& sin, int num_candidates) {
 // fill_candidate_names
 // ------------
 
+// Fill the string array candidate_names with that of the input
 void fill_candidate_names(istream& sin, int num_candidates) {
     string s;
 
@@ -235,6 +255,8 @@ void voting_solve(istream& sin, ostream& sout) {
     int cases = get_number_of_cases(s);
 
     getline(sin, s);
+
+    // Run loop for each case
     for(int i = 0; i < cases; i++) {
 
         getline(sin, s);
@@ -318,7 +340,8 @@ void fill_candidate_num_of_votes(vector<int> votes, int num_candidates) {
 // call_redistribute - Helper Method for Unit Testing
 // -------------
 
-string call_redistribute(int num_candidates, vector<int> losers, vector<int> ballots_candidate_has[], int min) {
+string call_redistribute(int num_candidates, vector<int> losers,
+                         vector<int> ballots_candidate_has[], int min) {
 
     for(int i = 0; i < num_candidates; i++) {
         candidate_num_of_votes[i] = 0;
@@ -338,12 +361,14 @@ string call_redistribute(int num_candidates, vector<int> losers, vector<int> bal
             int ballot_ID = ballots.at(j);
             int index_on_ballot = 0;
 
-            int next_candidate = ballots_and_all_choices[ballot_ID][index_on_ballot];
+            int next_candidate =
+                ballots_and_all_choices[ballot_ID][index_on_ballot];
             next_candidate--;
 
             while(candidate_num_of_votes[next_candidate] == -1) {
                 index_on_ballot++;
-                next_candidate = ballots_and_all_choices[ballot_ID][index_on_ballot];
+                next_candidate =
+                    ballots_and_all_choices[ballot_ID][index_on_ballot];
                 next_candidate--;
             }
 
@@ -359,7 +384,8 @@ string call_redistribute(int num_candidates, vector<int> losers, vector<int> bal
 // call_assign_candidates - Helper Method for Unit Testing
 // -------------
 
-string call_assign_candidates(vector<int> ballot_num_candidate_has, int num_candidates, int min) {
+string call_assign_candidates(vector<int> ballot_num_candidate_has,
+                              int num_candidates, int min) {
     vector<int> losers;
     ostringstream stream;
 

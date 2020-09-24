@@ -88,7 +88,12 @@ TEST(VotingFixture, assign1) {
 // ------------
 
 TEST(VotingFixture, redistribute0) {
-    istringstream iss("1 2 4 3 5\n4 2 1 5 3\n2 1 4 5 3\n2 3 5 4 1\n4 3 1 2 5\n3 1 2 4 5\n5 2 3 4 1\n");
+    string ans0("1 2 4 3 5\n4 2 1 5 3\n2 1 4 5 3\n2 3 5 4 1\n");
+    string ans1("4 3 1 2 5\n3 1 2 4 5\n5 2 3 4 1\n");
+    stringstream ss;
+    ss << ans0 << ans1;
+
+    istringstream iss(ss.str());
     fill_ballot_info(iss, 5);
 
     vector<int> losers{0, 2, 4};
@@ -116,6 +121,8 @@ TEST(VotingFixture, redistribute1) {
 // ------------
 
 TEST(VotingFixture, winner0) {
+
+
     istringstream iss0("Buzz Lightyear\nWoody\nPrincess Peach\nAll Might\n");
     fill_candidate_names(iss0, 4);
 
@@ -145,7 +152,11 @@ TEST(VotingFixture, ballot0) {
 
     string result = get_ballot_info(5, 4);
 
-    string answer = "1 - 1 2 4 3\n2 - 4 2 1 3\n3 - 3 2 1 4\n4 - 2 3 4 1\n5 - 1 3 4 2\n";
+    string ans0("1 - 1 2 4 3\n2 - 4 2 1 3\n3 - 3 2 1 4\n");
+    string ans1("4 - 2 3 4 1\n5 - 1 3 4 2\n");
+    stringstream ss;
+    ss << ans0 << ans1;
+    string answer = ss.str();
 
     ASSERT_EQ(result, answer);
 }
@@ -179,16 +190,16 @@ TEST(VotingFixture, names0) {
 }
 
 TEST(VotingFixture, names1) {
-    istringstream iss("42\n\n4\nBuzz Lightyear\nWoody\nPrincess Peach\nAll Might\n");
+    istringstream iss("42\n\n4\nBuzz Lightyear\nPrincess Peach\nAll Might\n");
     string t;
     getline(iss, t);
     getline(iss, t);
     getline(iss, t);
-    fill_candidate_names(iss, 4);
+    fill_candidate_names(iss, 3);
 
-    string result = get_candidate_names(4);
+    string result = get_candidate_names(3);
 
-    ASSERT_EQ(result, "Buzz Lightyear\nWoody\nPrincess Peach\nAll Might\n");
+    ASSERT_EQ(result, "Buzz Lightyear\nPrincess Peach\nAll Might\n");
 }
 
 // -------------

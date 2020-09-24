@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Ran my input file and output file matches tmp file" -m "Closes #2"
+	git commit -m "Made inline comments and did not exceed 80 characters" -m "Closes #9"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
@@ -118,9 +118,10 @@ test: TestVoting
 	$(VALGRIND) ./TestVoting
 	$(GCOV) Voting.cpp | grep -B 2 "cpp.gcov"
 
-# clone the Votingtest repo
+# clone the Voting test repo, first fork the original repo, clone your fork and then you can do merge request
 voting-tests:
-	git clone https://gitlab.com/gpdowning/cs371p-voting-tests.git voting-tests
+	git clone https://gitlab.com/jNav56/cs371p-voting-tests.git voting-tests
+	# https://gitlab.com/gpdowning/cs371p-voting-tests.git voting-tests
 
 # test files in the Voting test repo
 TFILES := `ls voting-tests/*.in`
