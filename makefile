@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Made Doxyfile, HTML, git log" -m "Closes #6, #8, #13"
+	git commit -m "Final Commit, only updated README with commit sha" -m "Closes #10"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status

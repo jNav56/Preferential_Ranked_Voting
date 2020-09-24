@@ -8,7 +8,7 @@
 
 * HackerRank ID: nava_juan1012
 
-* Git SHA: 
+* Git SHA: 1a56f2ec960d4009579546f20728e774c58e0342
 
 * GitLab Pipelines: https://gitlab.com/jNav56/cs371p-voting/-/pipelines
 
