@@ -64,6 +64,46 @@ string get_candidate_num_votes(int);
  */
 string call_redistribute(int, vector<int>, vector<int>[], int);
 
+// -------------
+// call_assign_candidates - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Calls assign_candidates_as_losers method and passes in given parameters
+ * @param losers int vector
+ * @param num_candidates int
+ * @param min int
+ * @return a string
+ */
+string call_assign_candidates(vector<int>, int, int);
+
+// ------------
+// is_there_a_winner
+// ------------
+
+/**
+ * Verify if there is a winner
+ * @param result string
+ * @param max int
+ * @param ballots_to_win int
+ * @param min int
+ * @param num_candidates int
+ * @return a bool
+ */
+bool is_there_a_winner(string&, int, int, int, int);
+
+// ------------
+// assign_candidates_as_losers
+// ------------
+
+/**
+ * Redistribute votes from losers to next eligible candidates
+ * @param losers int vector
+ * @param num_candidates int
+ * @param min int
+ */
+void assign_candidates_as_losers(vector<int>&, int, int);
+
 // ------------
 // redistribute_votes
 // ------------

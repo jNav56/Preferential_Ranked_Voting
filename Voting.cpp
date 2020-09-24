@@ -114,6 +114,32 @@ string call_redistribute(int num_candidates, vector<int> losers, vector<int> bal
     return get_candidate_num_votes(num_candidates);
 }
 
+// -------------
+// call_assign_candidates - Helper Method for Unit Testing
+// -------------
+
+string call_assign_candidates(vector<int> ballot_num_candidate_has, int num_candidates, int min) {
+    vector<int> losers;
+    ostringstream stream;
+
+    for(int i = 0; i < num_candidates; i++) {
+        candidate_num_of_votes[i] = ballot_num_candidate_has.at(i);
+    }
+
+    for(int i = 0; i < num_candidates; i++) {   
+        if (candidate_num_of_votes[i] == min) {
+            losers.push_back(i);
+            candidate_num_of_votes[i] = -1;
+        }
+    }
+
+    for(int i = 0; i < (int)(losers.size()); i++) {
+        stream << losers.at(i) << " ";
+    }
+
+    return stream.str();
+}
+
 void get_most_and_least_votes(int& min, int& max, int num_candidates) {
     for(int i = 0; i < num_candidates; i++) {
         int total_votes = candidate_num_of_votes[i];
@@ -129,6 +155,10 @@ void get_most_and_least_votes(int& min, int& max, int num_candidates) {
     }
 }
 
+// ------------
+// is_there_a_winner
+// ------------
+
 bool is_there_a_winner(string& result, int max, int ballots_to_win, int min, int num_candidates) {
     // If there is a winner(s) we get them and save them to result 
     if(max >= ballots_to_win || min == max) {
@@ -142,6 +172,10 @@ bool is_there_a_winner(string& result, int max, int ballots_to_win, int min, int
     }
     return false;
 }
+
+// ------------
+// assign_candidates_as_losers
+// ------------
 
 void assign_candidates_as_losers(vector<int>& losers, int num_candidates, int min) {
     // There are no winners so lets get and eliminate the losers

@@ -20,6 +20,38 @@
 using namespace std;
 
 // ------------
+// is_there_a_winner
+// ------------
+
+TEST(VotingFixture, victor0) {
+    string s;
+    bool result = is_there_a_winner(s, 25, 24, 2, 10);
+    ASSERT_EQ(result, true);}
+
+TEST(VotingFixture, victor1) {
+    string s;
+    bool result = is_there_a_winner(s, 26, 25, 2, 10);
+    ASSERT_EQ(result, true);}
+
+// ------------
+// assign_candidates_as_losers
+// ------------
+
+TEST(VotingFixture, assign0) {
+    vector<int> ballot_num_candidate_has{2, 2, 4, 6, 6, 7, 3, 5};
+
+    string result = call_assign_candidates(ballot_num_candidate_has, 8, 2);
+
+    ASSERT_EQ(result, "0 1 ");}
+
+TEST(VotingFixture, assign1) {
+    vector<int> ballot_num_candidate_has{2, 2, 2, 6, 6, 2, 2, 2};
+
+    string result = call_assign_candidates(ballot_num_candidate_has, 8, 2);
+
+    ASSERT_EQ(result, "0 1 2 5 6 7 ");}
+
+// ------------
 // redistribute_votes
 // ------------
 
