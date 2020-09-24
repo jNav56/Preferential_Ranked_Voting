@@ -74,6 +74,16 @@ string get_candidate_num_votes(int num_candidates) {
 }
 
 // -------------
+// fill_candidate_num_of_votes - Helper Method for Unit Testing
+// -------------
+
+void fill_candidate_num_of_votes(vector<int> votes, int num_candidates) {
+    for(int i = 0; i < num_candidates; i++) {
+        candidate_num_of_votes[i] = votes.at(i);
+    }
+}
+
+// -------------
 // call_redistribute - Helper Method for Unit Testing
 // -------------
 
@@ -139,6 +149,10 @@ string call_assign_candidates(vector<int> ballot_num_candidate_has, int num_cand
 
     return stream.str();
 }
+
+// ------------
+// get_most_and_least_votes
+// ------------
 
 void get_most_and_least_votes(int& min, int& max, int num_candidates) {
     for(int i = 0; i < num_candidates; i++) {

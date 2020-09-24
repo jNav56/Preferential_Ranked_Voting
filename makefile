@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Trying Again: Made method for assigning losers and checking if there is a winner" -m "Closes #24"
+	git commit -m "Finished last method and header file is working all correctly" -m "Closes #12, #22"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status

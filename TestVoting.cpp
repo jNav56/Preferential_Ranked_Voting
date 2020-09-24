@@ -20,6 +20,32 @@
 using namespace std;
 
 // ------------
+// get_most_and_least_votes
+// ------------
+
+TEST(VotingFixture, votes0) {
+    int min = 10;
+    int max = 0;
+    vector<int> votes{2, 2, 4, 6, 6, 7, 3, 5};
+
+    fill_candidate_num_of_votes(votes, 8);
+
+    get_most_and_least_votes(min, max, 8);
+
+    ASSERT_EQ(min + max, 9);}
+
+TEST(VotingFixture, votes1) {
+    int min = 10;
+    int max = 0;
+    vector<int> votes{3, 3, 3, 2, 3, 3, 3, 3, 1, 3};
+
+    fill_candidate_num_of_votes(votes, 10);
+
+    get_most_and_least_votes(min, max, 10);
+
+    ASSERT_EQ(min + max, 4);}
+
+// ------------
 // is_there_a_winner
 // ------------
 

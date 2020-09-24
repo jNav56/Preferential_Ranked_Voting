@@ -50,6 +50,18 @@ string get_ballot_info(int, int);
 string get_candidate_num_votes(int);
 
 // -------------
+// fill_candidate_num_of_votes - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Fill in candidate_num_of_votes with given parameter
+ * @param votes int vector
+ * @param num_candidates int
+ * @return a string
+ */
+void fill_candidate_num_of_votes(vector<int>, int);
+
+// -------------
 // call_redistribute - Helper Method for Unit Testing
 // -------------
 
@@ -76,6 +88,18 @@ string call_redistribute(int, vector<int>, vector<int>[], int);
  * @return a string
  */
 string call_assign_candidates(vector<int>, int, int);
+
+// ------------
+// get_most_and_least_votes
+// ------------
+
+/**
+ * Calls assign_candidates_as_losers method and passes in given parameters
+ * @param min int address
+ * @param max int address
+ * @param num_candidates int
+ */
+void get_most_and_least_votes(int&, int&, int);
 
 // ------------
 // is_there_a_winner
