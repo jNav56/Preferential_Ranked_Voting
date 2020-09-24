@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['get_5fballot_5finfo',['get_ballot_info',['../Voting_8cpp.html#aa85e8723954c266d6a8b9de020025f6d',1,'get_ballot_info(int num_ballots, int num_candidates):&#160;Voting.cpp'],['../Voting_8hpp.html#a0455cd5c120c5bfa5016956dd8ca61e4',1,'get_ballot_info(int, int):&#160;Voting.cpp']]],
+  ['get_5fcandidate_5fnames',['get_candidate_names',['../Voting_8cpp.html#af69f41572bf7f6c4a30eaa94f21bab40',1,'get_candidate_names(int num_candidates):&#160;Voting.cpp'],['../Voting_8hpp.html#af86424600fec5c8dd8b64bb31a57b382',1,'get_candidate_names(int):&#160;Voting.cpp']]],
+  ['get_5fcandidate_5fnum_5fvotes',['get_candidate_num_votes',['../Voting_8cpp.html#a09457e780d10389812cdf29111430346',1,'get_candidate_num_votes(int num_candidates):&#160;Voting.cpp'],['../Voting_8hpp.html#a8e3f929899242a24f6dad409ffaf90b8',1,'get_candidate_num_votes(int):&#160;Voting.cpp']]],
+  ['get_5fmost_5fand_5fleast_5fvotes',['get_most_and_least_votes',['../Voting_8cpp.html#a71d98a61c0787adcbebba1313f8ef87a',1,'get_most_and_least_votes(int &amp;min, int &amp;max, int num_candidates):&#160;Voting.cpp'],['../Voting_8hpp.html#aa9aff892f50a254952cfd456d11b991c',1,'get_most_and_least_votes(int &amp;, int &amp;, int):&#160;Voting.cpp']]],
+  ['get_5fnumber_5fof_5fcandidates',['get_number_of_candidates',['../Voting_8cpp.html#a2bdcd8faabb4b406b506b35a14de77ba',1,'get_number_of_candidates(const string &amp;s):&#160;Voting.cpp'],['../Voting_8hpp.html#a164cca725b10384db3cf880454cb9822',1,'get_number_of_candidates(const string &amp;):&#160;Voting.cpp']]],
+  ['get_5fnumber_5fof_5fcases',['get_number_of_cases',['../Voting_8cpp.html#ab34c9bc905d4e44696a9cc22a4b66138',1,'get_number_of_cases(const string &amp;s):&#160;Voting.cpp'],['../Voting_8hpp.html#a4bd939961544a85e8d30c1ce10cae78e',1,'get_number_of_cases(const string &amp;):&#160;Voting.cpp']]],
+  ['get_5fwinner',['get_winner',['../Voting_8cpp.html#ab47ae9bac5636b6734ab12932c388ea1',1,'get_winner(int num_candidates, int n):&#160;Voting.cpp'],['../Voting_8hpp.html#a7dc1732e0bc22995b2a38fbe9fa53e05',1,'get_winner(int, int):&#160;Voting.cpp']]]
+];

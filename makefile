@@ -40,7 +40,7 @@ config:
 	git config -l
 
 # get git log
-Collatz.log:
+Voting.log:
 	git log > Voting.log
 
 # get git status
@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Made inline comments and did not exceed 80 characters" -m "Closes #9"
+	git commit -m "Made Doxyfile, HTML, git log" -m "Closes #6, #8, #13"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
@@ -158,8 +158,10 @@ html: Doxyfile Voting.hpp
 CFILES :=                                 \
     .gitignore                            \
     .gitlab-ci.yml                        \
-    # Voting.log                           \
-    # html
+    Voting.log                           \
+    html								\
+	voting-tests/jNav56-RunVoting  \
+	voting-tests/jNav56-RunVoting
 
 # uncomment the following line once you've pushed your test files
 # you must replace GitLabID with your GitLabID

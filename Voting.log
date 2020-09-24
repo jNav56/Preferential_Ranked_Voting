@@ -1,0 +1,203 @@
+commit 14ed238ddc685aeae5f5d8e4df83fd4662f3124a
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 24 18:11:55 2020 -0500
+
+    Made inline comments and did not exceed 80 characters
+    
+    Closes #9
+
+commit 5f21b6776d3fa4b16517a7d88ee9f846c5af5fdc
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 24 16:57:47 2020 -0500
+
+    Ran my input file and output file matches tmp file
+    
+    Closes #2
+
+commit db716802a59aae81530b4e318e95784506137fa0
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 24 16:52:19 2020 -0500
+
+    Ran checktestdata on my input file, it has worked
+
+commit 09bb625390848c71a1e5eaca0c0dd9880e01a6ea
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 24 16:45:03 2020 -0500
+
+    Created my .in and .out acceptance test files
+
+commit 6edebd5ab6354056e0c0bdc3cf69f496077d6f30
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 24 14:51:18 2020 -0500
+
+    Formatted code with astyle
+    
+    Closes #5
+
+commit 45997b36eb3fea24d1de2d3a48b81f52ff21aa8e
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 24 14:37:56 2020 -0500
+
+    The check test data checks for the inputs so I will not put asserstions and I am passing all 3 tests so no more optimizations
+    
+    Closes #4, #19
+
+commit aa5fd9e90e1cb2ed3b91a8791012fd3a03afb8b2
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 22:07:33 2020 -0500
+
+    Finished last method and header file is working all correctly
+    
+    Closes #12, #22
+
+commit 3c98dd6a6a6e258ad0234c33f7820961d0928386
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 21:46:17 2020 -0500
+
+    Trying Again: Made method for assigning losers and checking if there is a winner
+    
+    Closes #24
+
+commit 7c4334d33a669df0e1f531c31d822e641646bed3
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 21:45:47 2020 -0500
+
+    Trying Again: Made method for assigning losers and checking if there is a winner
+    
+    Closes #21
+
+commit fabae8cb6ee04acc1d5ffb2b0de154c1b9595e12
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 21:38:20 2020 -0500
+
+    Redistribution of votes was tested
+    
+    Closes #21
+
+commit f6cd6c86e779c65c611295ef7889b4c60857fb8f
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 20:56:48 2020 -0500
+
+    Redistribution of votes was tested
+    
+    Closes #21
+
+commit 2a99d688ef8cc58b45d778508f93b81e10abfff3
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 18:38:54 2020 -0500
+
+    Verified the correct winner was chosen when ballot info was filled
+    
+    Closes #23
+
+commit e644c62a06e5aaf24acd85950010f7a16b51ad15
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 18:21:26 2020 -0500
+
+    Verified that the ballots were retrieved and stored correctly
+    
+    Closes #18
+
+commit 35f9edf9676dd115f7443476c7f31ef3b6534f13
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 17:32:05 2020 -0500
+
+    Verified that the candidate names were retrieved and stored correctly
+
+commit 3e11214d6dbd0742d36ee79b2281f3dfef3fa4bb
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 16:58:53 2020 -0500
+
+    Created the method for reading the number of candidates and tested method
+    
+    Closes #17
+
+commit 837b942c0cbec75299af9a8fa4f5959f23ef4985
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 16:47:21 2020 -0500
+
+    Implementation of reading number of cases and testing method
+    
+    Closes #16
+
+commit 97e571243d3bf0b545b23dac84f385d9d7217470
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 14:08:00 2020 -0500
+
+    First unit test works with implementation and have enough issues
+    
+    Closes #1
+
+commit aa650c254d0237d0c80fa59f8f8531c2fab74bb0
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 12:41:53 2020 -0500
+
+    Fixed first implementation
+
+commit 466bfc859f92b419cc0a49b487ec9078b289d6eb
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 11:59:02 2020 -0500
+
+    Defined constants for global variables
+    
+    Closes #15
+
+commit f5e260f400cf99c199070b84c03fcc607cb325a2
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 11:42:04 2020 -0500
+
+    Created global variables
+    
+    Closes #3, #14
+
+commit 789b6476b53ad6fba3623dac761e8a79a2d5039b
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 10:38:58 2020 -0500
+
+    Trying again
+
+commit 37554006b1f2b838ed280686b5495c1823cab391
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 10:34:27 2020 -0500
+
+    Forked and Cloned public test repo
+    
+    Closes #7
+
+commit fa8f4ec2250237c538406034bf4814cdd44a49cc
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 10:18:46 2020 -0500
+
+    Trying to commit again
+
+commit 2ca30dba020dcfc20206370a270f2a003aa13139
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 10:07:47 2020 -0500
+
+    Created first unit test that is passing and fixed warnnings from Voting.cpp
+    
+    Closes #11
+
+commit 9d39815d858ead24b4378e971df41d098c62598d
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 23 09:12:43 2020 -0500
+
+    Filled in the RunVoting.cpp and Voting.cpp with code to run
+
+commit 0dbb59111d13c15651c00d3e53f645890f464ca4
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 22 19:08:30 2020 -0500
+
+    Updated Voting.in and Voting.out files
+
+commit fe2d488c2c527f4336a6da2e59b8e224c9bc311b
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 22 18:52:21 2020 -0500
+
+    Created a README, makefile, .gitignore, and a .gitlab-ci.yml file
+
+commit 0787f22b56a2ef6e93414780f39540a56a547629
+Author: Juan Nava <nava.juan1012@gmail.com>
+Date:   Tue Sep 22 22:18:03 2020 +0000
+
+    Initial commit
