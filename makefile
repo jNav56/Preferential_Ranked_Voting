@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Redistribution of votes was tested" -m "Closes #21"
+	git commit -m "Trying Again: Made method for assigning losers and checking if there is a winner" -m "Closes #21"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
