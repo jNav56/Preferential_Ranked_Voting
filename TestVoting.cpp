@@ -32,7 +32,8 @@ TEST(VotingFixture, votes0) {
 
     get_most_and_least_votes(min, max, 8);
 
-    ASSERT_EQ(min + max, 9);}
+    ASSERT_EQ(min + max, 9);
+}
 
 TEST(VotingFixture, votes1) {
     int min = 10;
@@ -43,7 +44,8 @@ TEST(VotingFixture, votes1) {
 
     get_most_and_least_votes(min, max, 10);
 
-    ASSERT_EQ(min + max, 4);}
+    ASSERT_EQ(min + max, 4);
+}
 
 // ------------
 // is_there_a_winner
@@ -52,12 +54,14 @@ TEST(VotingFixture, votes1) {
 TEST(VotingFixture, victor0) {
     string s;
     bool result = is_there_a_winner(s, 25, 24, 2, 10);
-    ASSERT_EQ(result, true);}
+    ASSERT_EQ(result, true);
+}
 
 TEST(VotingFixture, victor1) {
     string s;
     bool result = is_there_a_winner(s, 26, 25, 2, 10);
-    ASSERT_EQ(result, true);}
+    ASSERT_EQ(result, true);
+}
 
 // ------------
 // assign_candidates_as_losers
@@ -68,14 +72,16 @@ TEST(VotingFixture, assign0) {
 
     string result = call_assign_candidates(ballot_num_candidate_has, 8, 2);
 
-    ASSERT_EQ(result, "0 1 ");}
+    ASSERT_EQ(result, "0 1 ");
+}
 
 TEST(VotingFixture, assign1) {
     vector<int> ballot_num_candidate_has{2, 2, 2, 6, 6, 2, 2, 2};
 
     string result = call_assign_candidates(ballot_num_candidate_has, 8, 2);
 
-    ASSERT_EQ(result, "0 1 2 5 6 7 ");}
+    ASSERT_EQ(result, "0 1 2 5 6 7 ");
+}
 
 // ------------
 // redistribute_votes
@@ -90,7 +96,8 @@ TEST(VotingFixture, redistribute0) {
 
     string result = call_redistribute(5, losers, ballots_candidate_has, 1);
 
-    ASSERT_EQ("1 - -1\n2 - 3\n3 - -1\n4 - 0\n5 - -1\n", result);}
+    ASSERT_EQ("1 - -1\n2 - 3\n3 - -1\n4 - 0\n5 - -1\n", result);
+}
 
 TEST(VotingFixture, redistribute1) {
     istringstream iss("1 2 3\n2 1 3\n3 2 1\n2 3 1\n3 1 2\n3 1 2\n2 3 1\n");
@@ -101,7 +108,8 @@ TEST(VotingFixture, redistribute1) {
 
     string result = call_redistribute(3, losers, ballots_candidate_has, 1);
 
-    ASSERT_EQ("1 - -1\n2 - 1\n3 - 0\n", result);}
+    ASSERT_EQ("1 - -1\n2 - 1\n3 - 0\n", result);
+}
 
 // ------------
 // get_winner
@@ -114,7 +122,8 @@ TEST(VotingFixture, winner0) {
     istringstream iss1("1 2 4 3\n4 2 1 3\n3 2 1 4\n2 3 4 1\n4 3 1 2\n");
     fill_ballot_info(iss1, 4);
 
-    ASSERT_EQ(get_winner(4, 5), "All Might\n");}
+    ASSERT_EQ(get_winner(4, 5), "All Might\n");
+}
 
 TEST(VotingFixture, winner1) {
     istringstream iss0("Poppy\nBonny\n");
@@ -123,7 +132,8 @@ TEST(VotingFixture, winner1) {
     istringstream iss1("1 2\n2 1\n2 1\n1 2\n");
     fill_ballot_info(iss1, 2);
 
-    ASSERT_EQ(get_winner(2, 4), "Poppy\nBonny\n");}
+    ASSERT_EQ(get_winner(2, 4), "Poppy\nBonny\n");
+}
 
 // ------------
 // fill_ballot_info
@@ -137,7 +147,8 @@ TEST(VotingFixture, ballot0) {
 
     string answer = "1 - 1 2 4 3\n2 - 4 2 1 3\n3 - 3 2 1 4\n4 - 2 3 4 1\n5 - 1 3 4 2\n";
 
-    ASSERT_EQ(result, answer);}
+    ASSERT_EQ(result, answer);
+}
 
 TEST(VotingFixture, ballot1) {
     istringstream iss("1 2\n1 2\n1 2\n2 1\n");
@@ -147,7 +158,8 @@ TEST(VotingFixture, ballot1) {
 
     string answer = "1 - 1 2\n2 - 1 2\n3 - 1 2\n4 - 2 1\n";
 
-    ASSERT_EQ(result, answer);}
+    ASSERT_EQ(result, answer);
+}
 
 // ------------
 // fill_candidate_names
@@ -160,10 +172,11 @@ TEST(VotingFixture, names0) {
     getline(iss, t);
     getline(iss, t);
     fill_candidate_names(iss, 3);
-    
+
     string result = get_candidate_names(3);
 
-    ASSERT_EQ(result, "Deku\nIzuku\nMidoriya\n");}
+    ASSERT_EQ(result, "Deku\nIzuku\nMidoriya\n");
+}
 
 TEST(VotingFixture, names1) {
     istringstream iss("42\n\n4\nBuzz Lightyear\nWoody\nPrincess Peach\nAll Might\n");
@@ -172,17 +185,19 @@ TEST(VotingFixture, names1) {
     getline(iss, t);
     getline(iss, t);
     fill_candidate_names(iss, 4);
-    
+
     string result = get_candidate_names(4);
 
-    ASSERT_EQ(result, "Buzz Lightyear\nWoody\nPrincess Peach\nAll Might\n");}
+    ASSERT_EQ(result, "Buzz Lightyear\nWoody\nPrincess Peach\nAll Might\n");
+}
 
 // -------------
 // get_number_of_candidates
 // -------------
 
 TEST(VotingFixture, candidates0) {
-    ASSERT_EQ(get_number_of_candidates("5"), 5);}
+    ASSERT_EQ(get_number_of_candidates("5"), 5);
+}
 
 TEST(VotingFixture, candidates1) {
     istringstream iss("42\n\n3\n");
@@ -190,20 +205,23 @@ TEST(VotingFixture, candidates1) {
     getline(iss, t);
     getline(iss, t);
     getline(iss, t);
-    ASSERT_EQ(get_number_of_candidates(t), 3);}
+    ASSERT_EQ(get_number_of_candidates(t), 3);
+}
 
 // -------------
 // get_number_of_cases
 // -------------
 
 TEST(VotingFixture, cases0) {
-    ASSERT_EQ(get_number_of_cases("31"), 31);}
+    ASSERT_EQ(get_number_of_cases("31"), 31);
+}
 
 TEST(VotingFixture, cases1) {
     istringstream iss("42\n\n3\n");
     string t;
     getline(iss, t);
-    ASSERT_EQ(get_number_of_cases(t), 42);}
+    ASSERT_EQ(get_number_of_cases(t), 42);
+}
 
 // ----
 // voting_solve
@@ -212,7 +230,7 @@ TEST(VotingFixture, cases1) {
 TEST(VotingFixture, solve0) {
     string names("1\n\n3\nJohn Doe\nJane Smith\nSirhan Sirhan");
     string ballots("\n1 2 3\n2 1 3\n2 3 1\n1 2 3\n3 1 2\n");
-    
+
     stringstream ss;
     ss << names << ballots;
     string whole = ss.str();
@@ -220,7 +238,8 @@ TEST(VotingFixture, solve0) {
     istringstream iss(whole);
     ostringstream oss;
     voting_solve(iss, oss);
-    ASSERT_EQ("John Doe\n", oss.str());}
+    ASSERT_EQ("John Doe\n", oss.str());
+}
 
 TEST(VotingFixture, solve1) {
 
@@ -257,4 +276,5 @@ TEST(VotingFixture, solve1) {
     istringstream iss(whole);
     ostringstream oss;
     voting_solve(iss, oss);
-    ASSERT_EQ("Izuku\n", oss.str());}
+    ASSERT_EQ("Izuku\n", oss.str());
+}
