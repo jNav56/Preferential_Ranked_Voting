@@ -27,129 +27,6 @@ int candidate_num_of_votes[MAX_NUMBER_OF_CANDIDATES];
 int ballots_and_all_choices[MAX_NUMBER_OF_BALLOTS][MAX_NUMBER_OF_CANDIDATES];
 string candidate_names[MAX_NUMBER_OF_CANDIDATES];
 
-// -------------
-// get_candidate_names - Helper Method for Unit Testing
-// -------------
-
-string get_candidate_names(int num_candidates) {
-    string result = "";
-
-    for(int i = 0; i < num_candidates; i++) {
-        result += candidate_names[i] + "\n";
-    }
-
-    return result;
-}
-
-// -------------
-// get_ballot_info - Helper Method for Unit Testing
-// -------------
-
-string get_ballot_info(int num_ballots, int num_candidates) {
-
-    ostringstream stream;
-    for(int i = 0; i < num_ballots; i++) {
-        stream << (i + 1) << " -";
-
-        for(int j = 0; j < num_candidates; j++) {
-            stream << " " << ballots_and_all_choices[i][j];
-        }
-        stream << '\n';
-    }
-    return stream.str();
-}
-
-// -------------
-// get_candidate_num_votes - Helper Method for Unit Testing
-// -------------
-
-string get_candidate_num_votes(int num_candidates) {
-    ostringstream stream;
-
-    for(int i = 0; i < num_candidates; i++) {
-        stream << (i + 1) << " - " << candidate_num_of_votes[i] << "\n";
-    }
-
-    return stream.str();
-}
-
-// -------------
-// fill_candidate_num_of_votes - Helper Method for Unit Testing
-// -------------
-
-void fill_candidate_num_of_votes(vector<int> votes, int num_candidates) {
-    for(int i = 0; i < num_candidates; i++) {
-        candidate_num_of_votes[i] = votes.at(i);
-    }
-}
-
-// -------------
-// call_redistribute - Helper Method for Unit Testing
-// -------------
-
-string call_redistribute(int num_candidates, vector<int> losers, vector<int> ballots_candidate_has[], int min) {
-
-    for(int i = 0; i < num_candidates; i++) {
-        candidate_num_of_votes[i] = 0;
-    }
-
-    for(int i = 0; i < (int)(losers.size()); i++) {
-        candidate_num_of_votes[losers.at(i)] = -1;
-    }
-
-    // Let's redistribute the loser votes
-    for(int i = 0; i < (int)losers.size(); i++) {
-                
-        vector<int> ballots = ballots_candidate_has[losers.at(i)];
-                
-        for(int j = 0; j < min; j++) {
-                    
-            int ballot_ID = ballots.at(j);
-            int index_on_ballot = 0;
-                    
-            int next_candidate = ballots_and_all_choices[ballot_ID][index_on_ballot];
-            next_candidate--;
-                    
-            while(candidate_num_of_votes[next_candidate] == -1) {
-                index_on_ballot++;
-                next_candidate = ballots_and_all_choices[ballot_ID][index_on_ballot];
-                next_candidate--;
-            }
-                         
-            candidate_num_of_votes[next_candidate]++;
-            ballots_candidate_has[next_candidate].push_back(ballot_ID);
-        }
-    }
-    
-    return get_candidate_num_votes(num_candidates);
-}
-
-// -------------
-// call_assign_candidates - Helper Method for Unit Testing
-// -------------
-
-string call_assign_candidates(vector<int> ballot_num_candidate_has, int num_candidates, int min) {
-    vector<int> losers;
-    ostringstream stream;
-
-    for(int i = 0; i < num_candidates; i++) {
-        candidate_num_of_votes[i] = ballot_num_candidate_has.at(i);
-    }
-
-    for(int i = 0; i < num_candidates; i++) {   
-        if (candidate_num_of_votes[i] == min) {
-            losers.push_back(i);
-            candidate_num_of_votes[i] = -1;
-        }
-    }
-
-    for(int i = 0; i < (int)(losers.size()); i++) {
-        stream << losers.at(i) << " ";
-    }
-
-    return stream.str();
-}
-
 // ------------
 // get_most_and_least_votes
 // ------------
@@ -246,7 +123,8 @@ string get_winner(int num_candidates, int n) {
     }
         
     // Array holds the specific ballots each candidate has
-    vector<int> *ballots_candidate_has = new vector<int>[num_candidates];
+    // vector<int> *ballots_candidate_has = new vector<int>[num_candidates];
+    vector<int> ballots_candidate_has[MAX_NUMBER_OF_CANDIDATES];
         
     // Fill in number of votes and ballot IDs each candidate has at first
     for (int i = 0; i < n; i++) {
@@ -374,4 +252,131 @@ void voting_solve(istream& sin, ostream& sout) {
         }
         
     }
+}
+
+// -------------
+// Below are Helper Methods for Unit Testing
+// -------------
+
+// -------------
+// get_candidate_names - Helper Method for Unit Testing
+// -------------
+
+string get_candidate_names(int num_candidates) {
+    string result = "";
+
+    for(int i = 0; i < num_candidates; i++) {
+        result += candidate_names[i] + "\n";
+    }
+
+    return result;
+}
+
+// -------------
+// get_ballot_info - Helper Method for Unit Testing
+// -------------
+
+string get_ballot_info(int num_ballots, int num_candidates) {
+
+    ostringstream stream;
+    for(int i = 0; i < num_ballots; i++) {
+        stream << (i + 1) << " -";
+
+        for(int j = 0; j < num_candidates; j++) {
+            stream << " " << ballots_and_all_choices[i][j];
+        }
+        stream << '\n';
+    }
+    return stream.str();
+}
+
+// -------------
+// get_candidate_num_votes - Helper Method for Unit Testing
+// -------------
+
+string get_candidate_num_votes(int num_candidates) {
+    ostringstream stream;
+
+    for(int i = 0; i < num_candidates; i++) {
+        stream << (i + 1) << " - " << candidate_num_of_votes[i] << "\n";
+    }
+
+    return stream.str();
+}
+
+// -------------
+// fill_candidate_num_of_votes - Helper Method for Unit Testing
+// -------------
+
+void fill_candidate_num_of_votes(vector<int> votes, int num_candidates) {
+    for(int i = 0; i < num_candidates; i++) {
+        candidate_num_of_votes[i] = votes.at(i);
+    }
+}
+
+// -------------
+// call_redistribute - Helper Method for Unit Testing
+// -------------
+
+string call_redistribute(int num_candidates, vector<int> losers, vector<int> ballots_candidate_has[], int min) {
+
+    for(int i = 0; i < num_candidates; i++) {
+        candidate_num_of_votes[i] = 0;
+    }
+
+    for(int i = 0; i < (int)(losers.size()); i++) {
+        candidate_num_of_votes[losers.at(i)] = -1;
+    }
+
+    // Let's redistribute the loser votes
+    for(int i = 0; i < (int)losers.size(); i++) {
+                
+        vector<int> ballots = ballots_candidate_has[losers.at(i)];
+                
+        for(int j = 0; j < min; j++) {
+                    
+            int ballot_ID = ballots.at(j);
+            int index_on_ballot = 0;
+                    
+            int next_candidate = ballots_and_all_choices[ballot_ID][index_on_ballot];
+            next_candidate--;
+                    
+            while(candidate_num_of_votes[next_candidate] == -1) {
+                index_on_ballot++;
+                next_candidate = ballots_and_all_choices[ballot_ID][index_on_ballot];
+                next_candidate--;
+            }
+                         
+            candidate_num_of_votes[next_candidate]++;
+            ballots_candidate_has[next_candidate].push_back(ballot_ID);
+        }
+    }
+    
+    return get_candidate_num_votes(num_candidates);
+}
+
+// -------------
+// call_assign_candidates - Helper Method for Unit Testing
+// -------------
+
+string call_assign_candidates(vector<int> ballot_num_candidate_has, int num_candidates, int min) {
+    vector<int> losers;
+    ostringstream stream;
+
+    for(int i = 0; i < num_candidates; i++) {
+        candidate_num_of_votes[i] = ballot_num_candidate_has.at(i);
+    }
+
+    for(int i = 0; i < num_candidates; i++) {   
+        if (candidate_num_of_votes[i] == min) {
+            losers.push_back(i);
+            candidate_num_of_votes[i] = -1;
+        }
+    }
+
+    for(int i = 0; i < (int)(losers.size()); i++) {
+        stream << losers.at(i) << " ";
+    }
+
+    return stream.str();
 }

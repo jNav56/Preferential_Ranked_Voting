@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Finished last method and header file is working all correctly" -m "Closes #12, #22"
+	git commit -m "The check test data checks for the inputs so I will not put asserstions and I am passing all 3 tests so no more optimizations" -m "Closes #4, #19"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status

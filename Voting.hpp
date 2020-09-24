@@ -15,80 +15,6 @@
 
 using namespace std;
 
-// -------------
-// get_candidate_names - Helper Method for Unit Testing
-// -------------
-
-/**
- * Returns a string of the candidate names
- * @param num_candidates int
- * @return a string
- */
-string get_candidate_names(int);
-
-// -------------
-// get_ballot_info - Helper Method for Unit Testing
-// -------------
-
-/**
- * Returns a string of the all ballots
- * @param num_ballots int
- * @param num_candidates int
- * @return a string
- */
-string get_ballot_info(int, int);
-
-// -------------
-// get_candidate_num_votes - Helper Method for Unit Testing
-// -------------
-
-/**
- * Returns a string of the candidates and their votes
- * @param num_candidates int
- * @return a string
- */
-string get_candidate_num_votes(int);
-
-// -------------
-// fill_candidate_num_of_votes - Helper Method for Unit Testing
-// -------------
-
-/**
- * Fill in candidate_num_of_votes with given parameter
- * @param votes int vector
- * @param num_candidates int
- * @return a string
- */
-void fill_candidate_num_of_votes(vector<int>, int);
-
-// -------------
-// call_redistribute - Helper Method for Unit Testing
-// -------------
-
-/**
- * Calls redistribute_votes method and passes in given parameters
- * @param an istream
- * @param num_candidates int
- * @param losers int vector
- * @param ballots_candidate_has int vector array
- * @param min int
- * @return a string
- */
-string call_redistribute(int, vector<int>, vector<int>[], int);
-
-// -------------
-// call_assign_candidates - Helper Method for Unit Testing
-// -------------
-
-/**
- * Calls assign_candidates_as_losers method and passes in given parameters
- * @param losers int vector
- * @param num_candidates int
- * @param min int
- * @return a string
- */
-string call_assign_candidates(vector<int>, int, int);
-
 // ------------
 // get_most_and_least_votes
 // ------------
@@ -206,5 +132,79 @@ int get_number_of_cases(const string&);
  * @param an ostream
  */
 void voting_solve(istream&, ostream&);
+
+// -------------
+// get_candidate_names - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Returns a string of the candidate names
+ * @param num_candidates int
+ * @return a string
+ */
+string get_candidate_names(int);
+
+// -------------
+// get_ballot_info - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Returns a string of the all ballots
+ * @param num_ballots int
+ * @param num_candidates int
+ * @return a string
+ */
+string get_ballot_info(int, int);
+
+// -------------
+// get_candidate_num_votes - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Returns a string of the candidates and their votes
+ * @param num_candidates int
+ * @return a string
+ */
+string get_candidate_num_votes(int);
+
+// -------------
+// fill_candidate_num_of_votes - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Fill in candidate_num_of_votes with given parameter
+ * @param votes int vector
+ * @param num_candidates int
+ * @return a string
+ */
+void fill_candidate_num_of_votes(vector<int>, int);
+
+// -------------
+// call_redistribute - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Calls redistribute_votes method and passes in given parameters
+ * @param an istream
+ * @param num_candidates int
+ * @param losers int vector
+ * @param ballots_candidate_has int vector array
+ * @param min int
+ * @return a string
+ */
+string call_redistribute(int, vector<int>, vector<int>[], int);
+
+// -------------
+// call_assign_candidates - Helper Method for Unit Testing
+// -------------
+
+/**
+ * Calls assign_candidates_as_losers method and passes in given parameters
+ * @param losers int vector
+ * @param num_candidates int
+ * @param min int
+ * @return a string
+ */
+string call_assign_candidates(vector<int>, int, int);
 
 #endif // Voting_h
