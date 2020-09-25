@@ -75,7 +75,7 @@ push:
 	git add RunVoting.in
 	git add RunVoting.out
 	git add TestVoting.cpp
-	git commit -m "Real Final Commit, assertions"
+	git commit -m "Final Commit"
 	# git commit -m "Created first unit Voting.cpp" -m "Closes #11, #2"
 	git push
 	git status
