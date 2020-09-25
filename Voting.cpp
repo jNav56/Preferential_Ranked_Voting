@@ -140,7 +140,6 @@ string get_winner(int num_candidates, int n) {
     }
 
     // Array holds the specific ballots each candidate has
-    // vector<int> *ballots_candidate_has = new vector<int>[num_candidates];
     vector<int> ballots_candidate_has[MAX_NUMBER_OF_CANDIDATES];
 
     // Fill in number of votes and ballot IDs each candidate has at first
@@ -253,6 +252,7 @@ void voting_solve(istream& sin, ostream& sout) {
 
     getline(sin, s);
     int cases = get_number_of_cases(s);
+    assert(cases > 0 && cases <= 100);
 
     getline(sin, s);
 
@@ -261,10 +261,12 @@ void voting_solve(istream& sin, ostream& sout) {
 
         getline(sin, s);
         int num_candidates = get_number_of_candidates(s);
+        assert(num_candidates > 0 && num_candidates <= 20);
 
         fill_candidate_names(sin, num_candidates);
 
         int num_of_ballots = fill_ballot_info(sin, num_candidates);
+        assert(num_of_ballots > 0 && num_of_ballots <= 1000);
 
         string result = get_winner(num_candidates, num_of_ballots);
         sout << result;
