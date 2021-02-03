@@ -1,5 +1,7 @@
 # CS371p: Object-Oriented Programming Voting Repo
 
+* Main File: Voting.cpp
+
 * Name: Juan Nava
 
 * EID: jcn842
